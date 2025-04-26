@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunix | Monitor de Backups</title>
+    
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estilos customizados para o SVG */
+        .logo-container {
+            height: 50px;
+            display: flex;
+            align-items: center;
+        }
+        .logo-svg {
+            height: 100%;
+            width: auto;
+            max-width: 180px;
+        }
+        .loading-container {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="comunix-header bg-primary text-white shadow">
+        <div class="container">
+            <div class="d-flex align-items-center py-3">
+                <div class="logo-container">
+                    <!-- Método à prova de erros para SVG -->
+                    <object data="./img/logo-commix.svg" type="image/svg+xml" class="logo-svg me-3">
+                        <!-- Fallback caso o SVG falhe -->
+                        <img src="./img/logo-fallback.png" alt="Comunix" style="height:100%">
+                    </object>
+                </div>
+                <h1 class="m-0">Monitor de Backups</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container my-4">
+        <!-- Card do Gráfico -->
+        <section class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h2 class="card-title text-primary">
+                    <i class="fas fa-chart-pie me-2"></i>Visão Geral
+                </h2>
+                <div id="grafico-status" class="my-4" style="height: 300px;">
+                    <div id="chartLoading" class="loading-container">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Carregando...</span>
+                        </div>
+                    </div>
+                    <canvas id="backupChart"></canvas>
+                </div>
+                <div class="text-end">
+                    <small class="text-muted">Última atualização: <span id="lastUpdate"></span></small>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabela de Backups -->
+        <section class="card shadow-sm">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="card-title text-primary m-0">
+                        <i class="fas fa-database me-2"></i>Backups Recentes
+                    </h2>
+                    <button id="refreshBtn" class="btn btn-sm btn-outline-primary">
+                        <i class="fas fa-sync-alt me-1"></i>Atualizar
+                    </button>
+                </div>
+                
+                <div id="tableLoading" class="loading-container">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Carregando...</span>
+                    </div>
+                </div>
+                
+                <div class="table-responsive d-none" id="backupTableContainer">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Arquivo</th>
+                                <th>Tamanho</th>
+                                <th>Último Acesso</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="backupTableBody">
+                            <!-- Dados serão inseridos via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div id="errorAlert" class="alert alert-danger d-none mt-3"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-light py-3 mt-5">
+        <div class="container text-center text-muted">
+            <small>Soluções Comunix &copy; 2024 - v1.0.0</small>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/backupManager.js"></script>
+
+    <!-- Fallback para SVG -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Verifica se o SVG foi carregado após 3 segundos
+            setTimeout(() => {
+                const svgObject = document.querySelector('object[type="image/svg+xml"]');
+                if (!svgObject || !svgObject.contentDocument) {
+                    console.warn('SVG não carregado, ativando fallback');
+                    const fallback = document.createElement('img');
+                    fallback.src = './img/logo-fallback.png';
+                    fallback.alt = 'Comunix';
+                    fallback.style.height = '50px';
+                    svgObject.parentNode.replaceChild(fallback, svgObject);
+                }
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

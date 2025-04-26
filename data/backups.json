@@ -1,0 +1,83 @@
+{
+    "data_verificacao": "2025-04-25",
+    "mes_referencia": "04",
+    "cliente": "terracap",
+    "diretorios": [
+      {
+        "caminho": "/home/bkpClientes/terracap/share",
+        "arquivos": [
+          {
+            "nome": "bkp_terracapSHARE00_EXTPHONE_2025-04-04.tar.gz",
+            "tamanho": "7.4M",
+            "tamanho_bytes": 7760000,
+            "ultimo_acesso": "00:33",
+            "status": "OK"
+          },
+          {
+            "nome": "bkp_terracapSHARE00_EXTPHONE_2025-04-08.tar.gz",
+            "tamanho": "7.4M",
+            "tamanho_bytes": 7760000,
+            "ultimo_acesso": "00:36",
+            "status": "OK"
+          },
+          {
+            "nome": "bkp_terracapSHARE00_SHARE_2025-04-04.tar.gz",
+            "tamanho": "353K",
+            "tamanho_bytes": 353000,
+            "ultimo_acesso": "00:33",
+            "status": "OK"
+          }
+        ],
+        "resumo": {
+          "arquivos_ok": 10,
+          "arquivos_nao_ok": 0
+        }
+      },
+      {
+        "caminho": "/home/bkpClientes/terracap/banco",
+        "arquivos": [],
+        "resumo": {
+          "arquivos_ok": 0,
+          "arquivos_nao_ok": 0,
+          "observacao": "MÊS ATUAL NÃO GEROU!"
+        }
+      },
+      {
+        "caminho": "/home/bkpClientes/terracap/ura",
+        "arquivos": [
+          {
+            "nome": "bkp_terracapURA00_CFG_2025-04-04.tar.gz",
+            "tamanho": "87M",
+            "tamanho_bytes": 91200000,
+            "ultimo_acesso": "00:34",
+            "status": "OK"
+          }
+        ],
+        "resumo": {
+          "arquivos_ok": 5,
+          "arquivos_nao_ok": 0
+        }
+      },
+      {
+        "caminho": "/home/bkpClientes/terracap/web",
+        "arquivos": [
+          {
+            "nome": "bkp_terracapWEB00_SITE_2025-04-04.tar.gz",
+            "tamanho": "595M",
+            "tamanho_bytes": 623000000,
+            "ultimo_acesso": "00:33",
+            "status": "OK"
+          }
+        ],
+        "resumo": {
+          "arquivos_ok": 13,
+          "arquivos_nao_ok": 0
+        }
+      }
+    ],
+    "resumo_geral": {
+      "total_arquivos_ok": 33,
+      "total_arquivos_nao_ok": 0,
+      "diretorios_sem_backup": 2
+    }
+  }

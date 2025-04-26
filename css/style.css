@@ -1,0 +1,21 @@
+:root {
+    --comunix-blue: #2C3E50;
+    --comunix-red: #E74C3C;
+    --comunix-light: #ECF0F1;
+}
+
+.comunix-header {
+    background: linear-gradient(135deg, var(--comunix-blue) 0%, #1A2E3B 100%);
+    color: white;
+    border-bottom: 4px solid var(--comunix-red);
+}
+
+.logo-demo {
+    height: 50px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.card {
+    border-left: 4px solid var(--comunix-red);
+    border-radius: 8px;
+}
